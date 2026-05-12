@@ -1,6 +1,6 @@
-[package]
-name = "design-patterns-rust"
-version = "0.1.0"
-edition = "2024"
-
-[dependencies]
+[workspace]
+resolver = "3"
+members = [
+    "creational/factory-method/button",
+    "creational/factory-method/transport"
+]
