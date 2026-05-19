@@ -11,5 +11,13 @@ name = "button"
 version = "0.1.0"
 
 [[package]]
+name = "prototype"
+version = "0.1.0"
+
+[[package]]
+name = "singleton"
+version = "0.1.0"
+
+[[package]]
 name = "transport"
 version = "0.1.0"
