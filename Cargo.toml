@@ -1,6 +1,6 @@
 [workspace]
 resolver = "3"
-members = ["creational/abstract-factory",
+members = ["creational/abstract-factory", "creational/builder",
     "creational/factory-method/button",
     "creational/factory-method/transport"
 , "creational/prototype", "creational/singleton"]
