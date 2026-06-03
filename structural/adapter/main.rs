@@ -67,8 +67,6 @@ impl ClientInterface for Adapter {
 
 // -------- Client --------
 
-struct Client {}
-
 trait ClientInterface {
     fn display_profile(&self, user: User);
 }
