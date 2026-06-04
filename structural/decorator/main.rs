@@ -99,7 +99,7 @@ fn main() {
     let compressed = CompressionDecorator {
         base: DataSourceDecorator::new(source),
     };
-    let long = std::iter::repeat("hello ").take(20).collect::<String>();
+    let long = std::iter::repeat_n("hello ", 20).collect::<String>();
     compressed.write(long.clone());
     println!("comp:  {}", compressed.read());
 
