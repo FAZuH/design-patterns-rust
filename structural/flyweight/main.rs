@@ -24,11 +24,16 @@ mod with_flyweight {
     }
 }
 
-
 fn main() {
     // without_flyweight
-    println!("without_flyweight::Particle : {}", std::mem::size_of::<without_flyweight::Particle>() * 100_000);
+    println!(
+        "without_flyweight::Particle : {}",
+        std::mem::size_of::<without_flyweight::Particle>() * 100_000
+    );
 
     // with_flyweight
-    println!("with_flyweight::Particle : {}", std::mem::size_of::<with_flyweight::Particle>() * 100_000);
+    println!(
+        "with_flyweight::Particle : {}",
+        std::mem::size_of::<with_flyweight::Particle>() * 100_000
+    );
 }
