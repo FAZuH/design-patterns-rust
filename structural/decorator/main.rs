@@ -87,29 +87,25 @@ fn main() {
     println!("plain: {}", source.read());
 
     // 2. encryption only
-    let source = FileSource { path: path.clone() };
-    let encrypted = EncryptionDecorator {
-        base: DataSourceDecorator::new(source),
+    let encrypt_source = EncryptionDecorator {
+        base: DataSourceDecorator::new(FileSource { path: path.clone() }),
     };
-    encrypted.write(String::from("secret data"));
-    println!("enc:   {}", encrypted.read());
+    encrypt_source.write(String::from("secret data"));
+    println!("enc:   {}", encrypt_source.read());
 
     // 3. compression only
-    let source = FileSource { path: path.clone() };
-    let compressed = CompressionDecorator {
-        base: DataSourceDecorator::new(source),
+    let compress_source = CompressionDecorator {
+        base: DataSourceDecorator::new(FileSource { path: path.clone() }),
     };
     let long = std::iter::repeat_n("hello ", 20).collect::<String>();
-    compressed.write(long.clone());
-    println!("comp:  {}", compressed.read());
+    compress_source.write(long.clone());
+    println!("comp:  {}", compress_source.read());
 
     // 4. encryption + compression
-    let source = FileSource { path: path.clone() };
-    let encrypted = EncryptionDecorator {
-        base: DataSourceDecorator::new(source),
-    };
     let both = CompressionDecorator {
-        base: DataSourceDecorator::new(encrypted),
+        base: DataSourceDecorator::new(EncryptionDecorator {
+            base: DataSourceDecorator::new(FileSource { path: path.clone() }),
+        }),
     };
     both.write(String::from("decorators are composable!"));
     println!("both:  {}", both.read());

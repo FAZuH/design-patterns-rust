@@ -1,4 +1,3 @@
-
 trait IAdminPanel {
     fn send_announcement(&self, message: String);
 }
